@@ -1,7 +1,22 @@
 import React, { Component, useState, useEffect } from "react";
 import '../styles/App.css';
 
-const [counter, setCounter] = useState(0);
+const App = () => {
+  // write your code here
+
+  const [counter, setCounter] = useState(0);
+
+ 
+
+  var changeCounter = (e) => {
+    if (e.key === "Enter") {
+      if (isNaN(e.target.value)) {
+        setCounter(0);
+      } else {
+        setCounter(parseInt(e.target.value));
+      }
+    }
+  };
 
   useEffect(() => {
     const i = setInterval(() => {
@@ -18,18 +33,7 @@ const [counter, setCounter] = useState(0);
     };
   }, [counter]);
 
-  var changeCounter = (e) => {
-    if (e.key === "Enter") {
-      if (isNaN(e.target.value)) {
-        setCounter(0);
-      } else {
-        setCounter(parseInt(e.target.value));
-      }
-    }
-  };
 
-const App = () => {
-  // write your code here 
 
   return (
     <div className="wrapper">
